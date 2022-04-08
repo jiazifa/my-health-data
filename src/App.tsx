@@ -1,18 +1,18 @@
-import 'antd/dist/antd.css'
-import CreateHealthData from './containers/CreateHealthData'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DashBoard from './containers/DashBoard';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './reducers';
+import Home from './containers/Home';
 
 function App() {
-
   return (
 
-    <BrowserRouter>
-      <Routes>
-        <Route path='create' element={<DashBoard />} />
-        <Route path='/' element={< CreateHealthData />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <Routes>
+          <Route path='/' element={< Home />} />
+        </Routes>
+      </HashRouter >
+    </Provider >
   )
 }
 

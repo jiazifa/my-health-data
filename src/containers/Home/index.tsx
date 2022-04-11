@@ -1,14 +1,16 @@
 import React from "react";
-import './style.css';
+import { Route, Routes } from "react-router-dom";
+import DashBoard from "../DashBoard";
 
-class Home extends React.Component {
-    render() {
-        return (
-            <div>
-                Home
-            </div>
-        )
-    }
+const Home = () => {
+    return (
+        <div>
+            Home
+            <Routes>
+                <Route path="dashboard" element={<DashBoard />} />
+            </Routes>
+        </div>
+    )
 }
 
 export default Home;

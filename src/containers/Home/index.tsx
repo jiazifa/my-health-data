@@ -1,16 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import DashBoard from "../DashBoard";
+import { Home } from './Home'
 
-const Home = () => {
-    return (
-        <div>
-            Home
-            <Routes>
-                <Route path="dashboard" element={<DashBoard />} />
-            </Routes>
-        </div>
-    )
+export {
+    Home,
 }
-
-export default Home;

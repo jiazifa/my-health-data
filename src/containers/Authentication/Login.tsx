@@ -69,11 +69,9 @@ function Login() {
                             security="*" />
 
                         <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, mb: 2 }}>登录</Button>
-                        <Grid container>
 
-                            <Grid item xs>
-                                <Link to="/register">注册</Link>
-                            </Grid>
+                        <Grid container justifyContent='flex-end'>
+                            <Link to="/register">注册</Link>
                         </Grid>
                     </Box>
                 </Container>

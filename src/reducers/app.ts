@@ -6,7 +6,7 @@ export declare interface IAppState {
 }
 
 const initValue: IAppState = {
-  isMenuCollapsed: false,
+  isMenuCollapsed: true,
 };
 
 export const appSlice = createSlice({

@@ -7,6 +7,7 @@ const theme = createTheme();
 function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordConfirm, setPasswordConfirm] = useState("");
     const [email, setEmail] = useState("");
 
     const handleUserNameChanged = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,6 +16,10 @@ function Register() {
 
     const handlePasswordChanged = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
+    }, []);
+
+    const handlePasswordConfirmChanged = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setPasswordConfirm(e.target.value)
     }, []);
 
     const handleEmailChanged = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +66,15 @@ function Register() {
                                     name="password"
                                     value={password}
                                     label="密码" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    autoFocus
+                                    name="passwordConfirm"
+                                    value={passwordConfirm}
+                                    label="确认密码" />
                             </Grid>
 
                         </Grid>

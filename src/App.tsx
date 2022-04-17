@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './reducers';
-import Home from './containers/Home';
+import { Home } from './containers/Home';
 import { Login, Register } from './containers/Authentication';
 import 'bulma/css/bulma.css'
 

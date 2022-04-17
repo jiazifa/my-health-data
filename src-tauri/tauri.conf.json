@@ -53,7 +53,7 @@
     },
     "windows": [
       {
-        "title": "我的健康数据",
+        "title": "",
         "width": 800,
         "height": 600,
         "resizable": true,

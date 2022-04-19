@@ -50,7 +50,7 @@ const HomeBar = () => {
                 </IconButton>
 
                 <Typography component='h1' variant="h5" color='inherit' noWrap flexGrow="1">
-                    DashBoard {isMenuCollapsed ? "true" : "false"}
+                    My Health Data
                 </Typography>
 
                 <IconButton color="inherit">

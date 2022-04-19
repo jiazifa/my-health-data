@@ -1,3 +1,4 @@
+import { Dashboard } from "@mui/icons-material";
 import React from "react";
 
 export declare interface IMenu {
@@ -12,9 +13,9 @@ export declare interface IMenu {
 
 const menus: Array<IMenu> = [
   {
-    path: "app/dashboard",
+    path: "dashboard",
     title: "看板",
-    icon: "Dashboard",
+    icon: <Dashboard />,
     comp: "Dashboard",
   },
 ];

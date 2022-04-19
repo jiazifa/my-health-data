@@ -2,32 +2,27 @@ import { createTheme, Typography } from "@mui/material"
 import React from "react";
 import { Label, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
-function createData(time: string, value?: number) {
-    return { time, value }
+
+export declare interface LineCharData {
+    title: string;
+    ytitle?: string;
+    xtitle?: string;
+    limit: [number?, number?]
+    values?: Array<[number, number | string]>
 }
 
-const data = [
-    createData('00:00', 0),
-    createData('03:00', 300),
-    createData('06:00', 600),
-    createData('09:00', 800),
-    createData('12:00', 1500),
-    createData('15:00', 2000),
-    createData('18:00', 2400),
-    createData('21:00', 2400),
-    createData('24:00', undefined),
-];
-
-function Chart() {
+function LineChartComp(data: LineCharData) {
     const theme = createTheme();
+
+    const vs = data.values?.map((i) => { return { y: i[0], x: i[1] } })
     return (
         <React.Fragment>
             <Typography >
-                Title
+                {data.title}
             </Typography>
             <ResponsiveContainer>
                 <LineChart
-                    data={data}
+                    data={vs}
                     margin={{
                         top: 16,
                         right: 16,
@@ -36,10 +31,12 @@ function Chart() {
                     }}
                 >
                     <XAxis
-                        dataKey="time"
+                        dataKey="x"
                         stroke={theme.palette.text.secondary}
                         style={theme.typography.body2}
-                    />
+                    >
+                        {data.xtitle}
+                    </XAxis>
                     <YAxis
                         stroke={theme.palette.text.secondary}
                         style={theme.typography.body2}
@@ -53,13 +50,13 @@ function Chart() {
                                 ...theme.typography.body1,
                             }}
                         >
-                            Sales ($)
+                            {data.ytitle}
                         </Label>
                     </YAxis>
                     <Line
                         isAnimationActive={false}
                         type="monotone"
-                        dataKey="amount"
+                        dataKey="y"
                         stroke={theme.palette.primary.main}
                         dot={false}
                     />
@@ -69,4 +66,4 @@ function Chart() {
     )
 }
 
-export { Chart }
+export { LineChartComp }

@@ -1,10 +1,11 @@
 import React from "react";
 import MuiDrawer from '@mui/material/Drawer';
-import { IconButton, List, ListItemButton, ListItemIcon, ListItemText, styled, ThemeProvider, Toolbar, Typography } from "@mui/material";
+import { IconButton, List, ListItemButton, ListItemIcon, ListItemText, styled, SvgIcon, ThemeProvider, Toolbar, Typography } from "@mui/material";
 import { Dashboard as DashboardIcon, Menu, ChevronLeft, Notifications } from '@mui/icons-material';
 import { useAppDispatch, useAppSelector } from "../../reducers";
 import { selectIsMenuCollapsed, toggleMenuCollapsed } from "../../reducers/app";
 import { menus, IMenu } from '../../utils/routes'
+import { Link } from "react-router-dom";
 
 const drawerWidth: number = 240;
 
@@ -34,12 +35,23 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-const MenuItemComp = (menu: Array<IMenu>) => {
-
-
+const MenuItemComp = (menus: Array<IMenu>) => {
     return (
         <List>
-
+            <React.Fragment>
+                {menus.map((i: IMenu) => {
+                    return (
+                        <Link to={i.path} >
+                            <ListItemButton >
+                                <ListItemIcon color="primary">
+                                    {i.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={i.title} sx={{ color: "ButtonText" }} />
+                            </ListItemButton>
+                        </Link>
+                    )
+                })}
+            </React.Fragment>
         </List>
     )
 }
@@ -67,22 +79,7 @@ const HomeSider = () => {
                 </IconButton>
             </Toolbar>
 
-            <List>
-                <React.Fragment>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <DashboardIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Dashboard" />
-                    </ListItemButton>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <DashboardIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="People" />
-                    </ListItemButton>
-                </React.Fragment>
-            </List>
+            {MenuItemComp(menus)}
         </Drawer>
     );
 }

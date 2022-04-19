@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Box, Container, createTheme, CssBaseline, Grid, Paper, ThemeProvider, Toolbar } from "@mui/material";
 import { HomeSider } from "./HomeSider";
 import { HomeBar } from "./HomeBar";
-import { Chart } from "../DashBoard/Chart";
+import DashBoard from "../DashBoard";
 
 const mdTheme = createTheme();
 
@@ -22,38 +22,11 @@ const Home = () => {
                     overflow: 'auto'
                 }}>
                     <Toolbar />
-                    <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-                        <Grid container spacing={3}>
-                            {/* Chart */}
-                            <Grid item xs={12} md={8} lg={9}>
-                                <Paper sx={{
-                                    p: 2,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: 240
-                                }}>
-                                    <Chart />
-                                </Paper>
-                            </Grid>
-                            {/* Recent Deposits */}
-                            <Grid item xs={12} md={4} lg={3}>
-                                <Paper elevation={3} sx={{
-                                    p: 2,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: 240
-                                }}>
-                                    Deposits
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </Container>
+                    <Routes>
+                        <Route path="dashboard" element={<DashBoard />} />
+                    </Routes>
                 </Box>
             </Box>
-            {/* 
-            <Routes>
-                <Route path="dashboard" element={<DashBoard />} />
-            </Routes> */}
         </ThemeProvider >
     )
 }

@@ -1,4 +1,4 @@
-import { createTheme, Typography } from "@mui/material"
+import { createTheme, Grid, Typography } from "@mui/material"
 import React from "react";
 import { Label, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
@@ -12,14 +12,12 @@ export declare interface LineCharData {
 }
 
 function LineChartComp(data: LineCharData) {
+
     const theme = createTheme();
 
     const vs = data.values?.map((i) => { return { y: i[0], x: i[1] } })
     return (
         <React.Fragment>
-            <Typography >
-                {data.title}
-            </Typography>
             <ResponsiveContainer>
                 <LineChart
                     data={vs}

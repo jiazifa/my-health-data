@@ -1,4 +1,4 @@
-import { Dashboard } from "@mui/icons-material";
+import { AddBox, Dashboard } from "@mui/icons-material";
 import React from "react";
 
 export declare interface IMenu {
@@ -13,11 +13,18 @@ export declare interface IMenu {
 
 const menus: Array<IMenu> = [
   {
+    key: "dashboard_key",
     path: "dashboard",
     title: "看板",
     icon: <Dashboard />,
     comp: "Dashboard",
   },
+  {
+    key: "add_data_board_key",
+    title: "录入数据",
+    path: "createHealthDataBoard",
+    icon: <AddBox />,
+  }
 ];
 
 export { menus };

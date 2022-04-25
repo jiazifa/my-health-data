@@ -7,7 +7,8 @@ const data: LineCharData = {
     limit: [240, 420],
     values: [
         [572, '2022-02-17'],
-        [282, '2022-03-17']
+        [282, '2022-03-17'],
+        [443, '2022-04-17'],
     ]
 }
 
@@ -33,26 +34,14 @@ function DashBoard() {
     return (
         <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-                {/* Chart */}
-                <Grid item xs={12} md={8} lg={9}>
+                <Grid item xs={12}>
                     <Paper sx={{
                         p: 2,
                         display: 'flex',
                         flexDirection: 'column',
-                        height: 240
+                        height: 440
                     }}>
                         {LineChartComp(data)}
-                    </Paper>
-                </Grid>
-                {/* Recent Deposits */}
-                <Grid item xs={12} md={4} lg={3}>
-                    <Paper elevation={3} sx={{
-                        p: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        height: 240
-                    }}>
-                        <Deposits />
                     </Paper>
                 </Grid>
             </Grid>

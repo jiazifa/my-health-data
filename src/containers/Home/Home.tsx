@@ -4,6 +4,7 @@ import { Box, Container, createTheme, CssBaseline, Grid, Paper, ThemeProvider, T
 import { HomeSider } from "./HomeSider";
 import { HomeBar } from "./HomeBar";
 import DashBoard from "../DashBoard";
+import { CreateHealthDataBoard, CreateUricAcidFormComp } from "../CreateHealthData";
 
 const mdTheme = createTheme();
 
@@ -24,6 +25,8 @@ const Home = () => {
                     <Toolbar />
                     <Routes>
                         <Route path="dashboard" element={<DashBoard />} />
+                        <Route path="healthRecord/create/uricAcid" element={<CreateUricAcidFormComp />} />
+                        <Route path="createHealthDataBoard" element={<CreateHealthDataBoard />} />
                     </Routes>
                 </Box>
             </Box>

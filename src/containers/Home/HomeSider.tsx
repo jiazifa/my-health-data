@@ -41,7 +41,7 @@ const MenuItemComp = (menus: Array<IMenu>) => {
             <React.Fragment>
                 {menus.map((i: IMenu) => {
                     return (
-                        <Link to={i.path} >
+                        <Link to={i.path} key={i.key}>
                             <ListItemButton >
                                 <ListItemIcon color="primary">
                                     {i.icon}

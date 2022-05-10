@@ -7,7 +7,6 @@ const theme = createTheme();
 
 function CreateHealthDataBoard() {
     const [isUricacidOpen, setIsUricacidOpen] = useState(false);
-
     return (
         <ThemeProvider theme={theme}>
             {/* Modal Dialog */}
@@ -39,7 +38,7 @@ function CreateHealthDataBoard() {
                                 />
                                 <CardContent>
                                     <Typography variant='body2' color="text.secondary" gutterBottom>
-                                        balabala
+                                        {`--`}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>

@@ -1,9 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import DashBoard from "../DashBoard";
-import { Badge, Box, Container, createTheme, CssBaseline, Grid, IconButton, List, ListItemButton, ListItemIcon, ListItemText, styled, ThemeProvider, Toolbar, Typography } from "@mui/material";
+import { Badge, IconButton, styled, Toolbar, Typography } from "@mui/material";
 import { Dashboard as DashboardIcon, Menu, ChevronLeft, Notifications } from '@mui/icons-material';
 import { useAppDispatch, useAppSelector } from "../../reducers";
 import { selectIsMenuCollapsed, toggleMenuCollapsed } from "../../reducers/app";

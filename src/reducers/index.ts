@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import appReducer from "./app";
+import healthReducer from "./health";
 
 const store = configureStore({
   reducer: {
     app: appReducer,
+    health: healthReducer,
   },
 });
 

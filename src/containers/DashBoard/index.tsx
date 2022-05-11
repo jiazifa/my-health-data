@@ -1,7 +1,7 @@
 import { Container, Grid, Link, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../reducers";
-import { selectHealthSections } from "../../reducers/health";
+import { selectHealthSections, URIC_KEY } from "../../reducers/health";
 import { LineCharData, LineChartComp } from "./LineChart";
 
 // const data: LineCharData = {
@@ -36,8 +36,8 @@ function DashBoard() {
     const allHealthData = useAppSelector(selectHealthSections);
     const dispatch = useAppDispatch();
 
-    const uricData = allHealthData.sections["sxx"];
-    console.log(`uricData::${uricData}`);
+    const uricData = allHealthData.sections[URIC_KEY];
+    console.log(`uricData::${JSON.stringify(allHealthData.sections)}`);
     const values = uricData.values?.map<[number, number | string]>((v) => [v.value, v.time.toLocaleString()]);
 
     const data: LineCharData = {

@@ -5,20 +5,34 @@ import moment from "moment";
 
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../reducers";
+import { addUricHealthData, IHealthDataUnit } from "../../reducers/health";
 
 const theme = createTheme();
 
-function CreateUricAcidFormComp() {
+export interface CreateUricAcidFormCompProps {
+    onCommit: () => void;
+}
+
+function CreateUricAcidFormComp(props: CreateUricAcidFormCompProps) {
 
     const navigator = useNavigate();
 
     const [key, _] = useState("KUricAcid");
     const [value, setValue] = useState<string>("");
-    const [date, setDate] = useState<Date | null>(new Date());
+    const [date, setDate] = useState<Date>(new Date());
+    const dispatch = useAppDispatch();
 
     const handleComfirm = useCallback((e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        let v = Number(value);
+        let time = date;
+        const unit: IHealthDataUnit = {
+            value: v,
+            time: moment(time).format("YYYY/MM/DD")
+        };
+        dispatch(addUricHealthData(unit));
+        props.onCommit();
     }, []);
 
     const handleValueChanged = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +71,7 @@ function CreateUricAcidFormComp() {
                             <DatePicker
                                 label="录入时间"
                                 value={date}
-                                onChange={(newValue) => { setDate(newValue) }}
+                                onChange={(newValue) => { setDate(newValue || new Date()) }}
                                 renderInput={(params) => <TextField fullWidth required {...params} />}
                             />
                         </LocalizationProvider>
@@ -74,16 +88,17 @@ function CreateUricAcidFormComp() {
 export interface CreateUricAcidFormDialogProps {
     open?: boolean;
     onClose: () => void;
+    onCommit: () => void;
 }
 
 function CreateUricAcidFormDialog(props: CreateUricAcidFormDialogProps) {
-    const { onClose, open } = props;
+    const { onClose, open, onCommit } = props;
 
     const handleClose = () => {
         onClose();
     };
     return (
-        <CreateUricAcidFormComp />
+        <CreateUricAcidFormComp onCommit={onCommit} />
     );
 }
 

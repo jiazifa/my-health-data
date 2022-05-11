@@ -16,7 +16,7 @@ function CreateHealthDataBoard() {
                         title="尿酸"
                         open={isUricacidOpen}
                         onClose={() => { setIsUricacidOpen(false) }}
-                        children={<CreateUricAcidFormDialog onClose={() => { }} />}
+                        children={<CreateUricAcidFormDialog onClose={() => { setIsUricacidOpen(false) }} onCommit={() => { setIsUricacidOpen(false) }} />}
                     />
                     : null
             }

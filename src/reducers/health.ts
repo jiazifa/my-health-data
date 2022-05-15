@@ -28,15 +28,15 @@ uricSections[URIC_KEY] = {
   title: "",
   values: [
     {
-      time: new Date("2022/02/06 05:30:00"),
+      time: new Date("2022/02/06"),
       value: 435,
     },
     {
-      time: new Date("2022/03/06 05:30:00"),
+      time: new Date("2022/03/06"),
       value: 235,
     },
     {
-      time: new Date("2022/04/06 05:30:00"),
+      time: new Date("2022/04/06"),
       value: 335,
     },
   ],
@@ -58,9 +58,10 @@ export const appSlice = createSlice({
       newValues = newValues.filter((i) => i.time !== action.payload.time);
       newValues.push(action.payload);
       newValues.sort((a, b) => moment(a.time).unix() - moment(b.time).unix());
-      state.sections = {
-        ...state.sections,
-        URIC_KEY: { ...state.sections[URIC_KEY], values: newValues },
+
+      state.sections[URIC_KEY] = {
+        ...state.sections[URIC_KEY],
+        values: newValues,
       };
     },
     updateHealthData: (

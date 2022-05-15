@@ -27,10 +27,12 @@ function CreateUricAcidFormComp(props: CreateUricAcidFormCompProps) {
         e.preventDefault();
         let v = Number(value);
         let time = date;
+        // let tString = moment(time).format("YYYY/MM/DD");
         const unit: IHealthDataUnit = {
             value: v,
-            time: moment(time).format("YYYY/MM/DD")
+            time: time
         };
+        // console.log(`${time} :: ${tString}`)
         dispatch(addUricHealthData(unit));
         props.onCommit();
     }, []);

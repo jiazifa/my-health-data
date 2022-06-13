@@ -9,7 +9,6 @@ function CreateHealthDataBoard() {
     const [isUricacidOpen, setIsUricacidOpen] = useState(false);
     return (
         <ThemeProvider theme={theme}>
-            {/* Modal Dialog */}
             {
                 isUricacidOpen ?
                     <BootstrapDialogComp
@@ -20,7 +19,6 @@ function CreateHealthDataBoard() {
                     />
                     : null
             }
-            {/* Modal Dialog */}
             <Box m={5}>
                 <Grid
                     container

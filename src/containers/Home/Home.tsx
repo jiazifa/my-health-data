@@ -25,7 +25,6 @@ const Home = () => {
                     <Toolbar />
                     <Routes>
                         <Route path="dashboard" element={<DashBoard />} />
-                        <Route path="healthRecord/create/uricAcid" element={<CreateUricAcidFormComp />} />
                         <Route path="createHealthDataBoard" element={<CreateHealthDataBoard />} />
                     </Routes>
                 </Box>
